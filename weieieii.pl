@@ -46,7 +46,6 @@ if ($data !~ /^[\w.]+$/){
 }
 
 $crypt = Crypt::ECB->new;
-$crypt->padding(PADDING_AUTO);
 $crypt->cipher('Blowfish') || die $crypt->errstring;
 $crypt->key($key); 
 $result = $crypt->decrypt(pack('H*',$data));
